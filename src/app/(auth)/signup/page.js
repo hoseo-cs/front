@@ -11,20 +11,17 @@ const SignupForm = () => {
     password: "",
     nickname: "",
     pet: "",
+    city: "",
+    district: "",
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(true);
   const [message, setMessage] = useState("");
   const [usernameCheck, setUsernameCheck] = useState(null);
-  const [isUsernameAvailable, setIsUsernameAvailable] = useState(null); // 추가
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    if (name === "username") {
-      setUsernameCheck(null);
-      setIsUsernameAvailable(null);
-    }
   };
 
   const handleUsernameCheck = async () => {
@@ -38,11 +35,9 @@ const SignupForm = () => {
       });
       const result = await response.json();
       setUsernameCheck(result.message);
-      setIsUsernameAvailable(result.success); // 추가
     } catch (error) {
       console.error("아이디 중복 체크 중 오류 발생:", error);
       setUsernameCheck("아이디 중복 체크 중 오류가 발생했습니다.");
-      setIsUsernameAvailable(false); // 추가
     }
   };
 
@@ -81,62 +76,90 @@ const SignupForm = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-200 p-4 sm:p-0">
-      <div className="bg-olive-200 w-full max-w-md p-8 space-y-6 shadow-lg sm:max-w-xs">
+      <div className="bg-olive-200 w-full max-w-2xl p-8 space-y-6 shadow-lg sm:max-w-lg">
         <h2 className="text-center text-2xl font-bold">회원가입</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              아이디
-            </label>
-            <div className="flex space-x-2">
+            <div className="flex items-center space-x-2">
+              <label className="text-sm font-medium text-gray-700 w-28">
+                아이디
+              </label>
               <input
                 type="text"
                 name="username"
-                className="w-full mt-1 p-2 border border-gray-300 rounded-md"
+                className="mt-1 p-2 border border-gray-300 rounded-md flex-grow"
                 value={formData.username}
                 onChange={handleChange}
                 required
               />
-              <button
-                type="button"
-                onClick={handleUsernameCheck}
-                className="py-2 px-4 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400"
-              >
-                중복 체크
-              </button>
             </div>
+            <button
+              type="button"
+              onClick={handleUsernameCheck}
+              className="mt-2 w-full py-2 px-4 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400"
+            >
+              중복 체크
+            </button>
             {usernameCheck && (
               <p
                 className={`text-sm mt-2 ${
-                  isUsernameAvailable ? "text-green-500" : "text-red-500"
+                  usernameCheck === "사용 가능한 아이디입니다."
+                    ? "text-green-500"
+                    : "text-red-500"
                 }`}
               >
                 {usernameCheck}
               </p>
             )}
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+          <div className="flex items-center space-x-2">
+            <label className="text-sm font-medium text-gray-700 w-28">
               비밀번호
             </label>
             <input
               type="password"
               name="password"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md"
+              className="mt-1 p-2 border border-gray-300 rounded-md flex-grow"
               value={formData.password}
               onChange={handleChange}
               required
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
+          <div className="flex items-center space-x-2">
+            <label className="text-sm font-medium text-gray-700 w-28">
               닉네임
             </label>
             <input
               type="text"
               name="nickname"
-              className="w-full mt-1 p-2 border border-gray-300 rounded-md"
+              className="mt-1 p-2 border border-gray-300 rounded-md flex-grow"
               value={formData.nickname}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="flex items-center space-x-2">
+            <label className="text-sm font-medium text-gray-700 w-28">
+              사는 곳 (시)
+            </label>
+            <input
+              type="text"
+              name="city"
+              className="mt-1 p-2 border border-gray-300 rounded-md flex-grow"
+              value={formData.city}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="flex items-center space-x-2">
+            <label className="text-sm font-medium text-gray-700 w-28">
+              사는 곳 (구)
+            </label>
+            <input
+              type="text"
+              name="district"
+              className="mt-1 p-2 border border-gray-300 rounded-md flex-grow"
+              value={formData.district}
               onChange={handleChange}
               required
             />
@@ -158,7 +181,7 @@ const SignupForm = () => {
             <button
               type="submit"
               className="w-full py-2 px-4 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400"
-              disabled={isUsernameAvailable === false} // 추가
+              disabled={usernameCheck === "이미 존재하는 아이디입니다."}
             >
               회원 가입
             </button>

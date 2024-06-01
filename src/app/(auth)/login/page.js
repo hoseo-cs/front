@@ -1,21 +1,64 @@
 "use client";
-import { useState } from "react";
+import ModalDefault from "@/app/components/modal/defaultModal";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const LoginForm = () => {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
+  const [message, setMessage] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(true);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      console.log("Already logged in:", token);
+      // 토큰이 존재하면 마이페이지로 리디렉션
+      router.push("/mypage");
+    } else {
+      console.log("Not logged in");
+    }
+  }, [router]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // 로그인 기능 구현 예정
-    console.log("Login data:", formData);
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json();
+      if (response.ok) {
+        localStorage.setItem("token", result.token);
+        setMessage("로그인에 성공했습니다!");
+        setIsSuccess(true);
+        setIsModalOpen(true);
+        localStorage.setItem("token", result.token); // 토큰 저장
+        setTimeout(() => {
+          setIsModalOpen(false);
+          router.push("/mypage"); // 로그인 완료 후 마이페이지로 이동
+        }, 1000);
+      } else {
+        setMessage("다시 시도해 주세요.");
+        setIsSuccess(false);
+      }
+    } catch (error) {
+      console.error("로그인 중 오류 발생:", error);
+      setMessage("로그인 중 오류가 발생했습니다.");
+      setIsSuccess(false);
+    }
   };
 
   return (
@@ -58,7 +101,13 @@ const LoginForm = () => {
             </button>
           </div>
         </form>
+        {!isSuccess && (
+          <p className="text-center text-red-500 mt-4">{message}</p>
+        )}
       </div>
+      <ModalDefault isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <p className="text-center text-2xl font-bold">{message}</p>
+      </ModalDefault>
     </div>
   );
 };
