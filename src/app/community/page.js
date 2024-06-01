@@ -12,7 +12,7 @@ const CommunityPage = () => {
       <div className="max-w-[1440px] h-[250px] text-center bg-lime-200">
         배너이미지
       </div>
-      <div className=" max-w-[1150px]  mx-auto border-solid border-2 border-sky-500">
+      <div className=" max-w-[1150px]  mx-auto ">
         <div className="w-[470px] mt-[60px] flex ml-96 ">
           <SearchBar />
           <div className="ml-3">

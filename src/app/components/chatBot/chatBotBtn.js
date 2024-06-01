@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ModalDefault from "../defaultModal";
+import ModalDefault from "../modal/defaultModal";
 import ChatBotModal from "./chatBotModal";
 
 const ChatBotBtn = () => {

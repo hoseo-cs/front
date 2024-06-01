@@ -1,0 +1,100 @@
+[
+  {
+    "region": "강원도",
+    "address": "원주시 남원로 655",
+    "name": "로얄종합동물병원",
+    "treatedAnimals": "포유류 특수동물, 조류",
+    "phoneNumber": "033-766-7230"
+  },
+  {
+    "region": "경기도",
+    "address": "부천시 원미구 길주로 80",
+    "name": "맘스동물의료센터",
+    "treatedAnimals": "파충류",
+    "phoneNumber": "032-229-8275"
+  },
+  {
+    "region": "경기도",
+    "address": "성남시 분당구 야탑로 103 ",
+    "name": "우리들동물병원",
+    "treatedAnimals": "포유류 특수동물",
+    "phoneNumber": "02-511-8383"
+  },
+  {
+    "region": "서울특별시",
+    "address": "서초구 서초동 1627-5 고려빌딩",
+    "name": "고려종합동물병원",
+    "treatedAnimals": "포유류 특수동물, 파충류, 조류",
+    "phoneNumber": "02-575-7999"
+  },
+  {
+    "region": "서울특별시",
+    "address": "송파구 동남로 161 청공빌딩 101호",
+    "name": "에코동물병원",
+    "treatedAnimals": "포유류 특수동물, 조류, 파충류, 양서류",
+    "phoneNumber": "02-443-2222"
+  },
+  {
+    "region": "서울특별시",
+    "address": "관악구 신림로 265",
+    "name": "한성동물병원",
+    "treatedAnimals": "포유류 특수동물, 조류, 파충류, 양서류, 어류",
+    "phoneNumber": "02-872-7609"
+  },
+  {
+    "region": "서울특별시",
+    "address": "강남구 논현로 132길 24 양현빌딩2층",
+    "name": "최영민동물의료센터",
+    "treatedAnimals": "포유류 특수동물, 조류, 파충류, 양서류, 어류",
+    "phoneNumber": "02-546-9539"
+  },
+  {
+    "region": "세종특별자치시",
+    "address": "마음로 241 지상1",
+    "name": "고운동물병원",
+    "treatedAnimals": "포유류 특수동물, 조류, 파충류",
+    "phoneNumber": "044-865-9575"
+  },
+  {
+    "region": "울산광역시",
+    "address": "남구 봉원로 104",
+    "name": "리틀쥬동물병원",
+    "treatedAnimals": "포유류 특수동물, 조류, 파충류",
+    "phoneNumber": "052-268-8894"
+  },
+  {
+    "region": "인천광역시",
+    "address": "서구 라임로 102",
+    "name": "청라라임동물병원",
+    "treatedAnimals": "포유류 특수동물, 파충류",
+    "phoneNumber": "032-563-1900"
+  },
+  {
+    "region": "인천광역시",
+    "address": "부평구 부평대로 138 2층",
+    "name": "24시부평종합동물의료센터",
+    "treatedAnimals": "포유류 특수동물, 파충류",
+    "phoneNumber": "032-511-6836"
+  },
+  {
+    "region": "전라북도",
+    "address": "익산시 공봉로 79",
+    "name": "전북대 전북동물의료센터",
+    "treatedAnimals": "포유류 특수동물, 조류, 파충류",
+    "phoneNumber": "063-850-0970"
+  },
+  {
+    "region": "제주특별자치도",
+    "address": "중앙로 273",
+    "name": "제주키움동물병원",
+    "treatedAnimals": "포유류 특수동물, 조류, 파충류",
+    "phoneNumber": "064-725-7579"
+  },
+  {
+    "region": "충청북도",
+    "address": "청주시 서원구 충대로 1 충북대학교 수의학대학 동물의료센터",
+    "name": "충북대학교 동물병원",
+    "treatedAnimals": "포유류 특수동물, 조류, 파충류, 어류",
+    "phoneNumber": "043-261-2602"
+  }
+]

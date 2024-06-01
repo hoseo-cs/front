@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
 import { useState } from "react";
 
 const SearchBar = () => {
@@ -19,40 +18,22 @@ const SearchBar = () => {
       onSubmit={(e) => {
         e.preventDefault();
         handleSearch();
-        // const search = e.target.value;
-        // const options = {
-        //   //수정할때는 push나 patch사용.
-        //   method: "PATCH",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({ title, body }),
-        // };
-        // fetch("" + keyword, options)
-        //   .then((res) => res.json()) // json화를 꼭 시켜줘야함
-        //   .then((result) => {
-        //     console.log(result);
-        //     router.refresh();
-        //     router.push(`/map/${result.id}`);
-        //   });
       }}
+      className="flex justify-center w-full"
     >
       <div
-        className="w-[340px] h-[40px] flex pl-[20px] my-auto cursor-pointer border-solid border-2 border-sky-500 rounded-[20px]
-    text-[10px]"
+        className="w-full sm:w-[340px] h-[40px] flex pl-4 my-auto cursor-pointer border-solid border-2 border-sky-500 rounded-full
+    text-sm sm:text-xs"
       >
         <input
           placeholder="동물 종, 거주지를 통해 병원을 검색해 보세요"
-          className="w-[340px] text-[10px] bg-transparent"
+          className="flex-grow text-sm sm:text-xs bg-transparent outline-none"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
-        ></input>
-        <Image
-          alt="Landscape picture"
-          width={37}
-          height={26}
-          src="/assets/search.png"
-        ></Image>
+        />
+        <button type="submit" className="flex items-center pr-2">
+          <Image alt="Search" width={20} height={20} src="/assets/search.png" />
+        </button>
       </div>
     </form>
   );
