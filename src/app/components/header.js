@@ -13,6 +13,16 @@ const Header = () => {
   }, []);
 
   const user_id = 2333333434;
+
+  const handleMyPageClick = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      router.push(`/mypage/${user_id}/posts`);
+    } else {
+      router.push("/login");
+    }
+  };
+
   return (
     mounted && (
       <div className="w-full h-[80px] flex flex-wrap items-center bg-header-bg p-4 sm:flex-nowrap sm:p-0">
@@ -32,7 +42,7 @@ const Header = () => {
         </div>
         <div
           className="w-full sm:w-auto flex justify-center sm:justify-end cursor-pointer"
-          onClick={() => router.push(`/mypage/${user_id}/posts`)}
+          onClick={handleMyPageClick}
         >
           마이페이지
         </div>

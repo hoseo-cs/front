@@ -15,10 +15,11 @@ const LoginForm = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    const username = localStorage.getItem("username");
     if (token) {
-      console.log("Already logged in:", token);
+      console.log("Already logged in", username);
       // 토큰이 존재하면 마이페이지로 리디렉션
-      router.push("/mypage");
+      router.push(`/mypage/${username}`);
     } else {
       console.log("Not logged in");
     }
@@ -45,10 +46,12 @@ const LoginForm = () => {
         setMessage("로그인에 성공했습니다!");
         setIsSuccess(true);
         setIsModalOpen(true);
+        console.log("로그인 성공:", result.username);
         localStorage.setItem("token", result.token); // 토큰 저장
+        localStorage.setItem("username", result.username);
         setTimeout(() => {
           setIsModalOpen(false);
-          router.push("/mypage"); // 로그인 완료 후 마이페이지로 이동
+          router.push(`/mypage/${result.username}`); // 로그인 완료 후 마이페이지로 이동
         }, 1000);
       } else {
         setMessage("다시 시도해 주세요.");
@@ -98,6 +101,13 @@ const LoginForm = () => {
               className="w-full py-2 px-4 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400"
             >
               로그인
+            </button>
+            <button
+              type="button"
+              onClick={() => router.push("/signup")}
+              className="w-full py-2 px-4 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400"
+            >
+              회원가입
             </button>
           </div>
         </form>
