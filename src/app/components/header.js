@@ -12,12 +12,11 @@ const Header = () => {
     setMounted(true);
   }, []);
 
-  const user_id = 2333333434;
-
   const handleMyPageClick = () => {
+    const username = localStorage.getItem("username");
     const token = localStorage.getItem("token");
     if (token) {
-      router.push(`/mypage/${user_id}/posts`);
+      router.push(`/mypage/${username}`);
     } else {
       router.push("/login");
     }

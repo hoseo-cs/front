@@ -42,7 +42,7 @@ const Page = () => {
         setTitle("");
         setContent("");
         setImages([]);
-        router.push(`/mypage/${userId}`);
+        router.push(`/mypage/${userId}/posts`);
       } else {
         alert("게시글 업로드에 실패했습니다.");
       }

@@ -1,11 +1,11 @@
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 const WriteBtn = () => {
   const router = useRouter();
-  //const params = useParams();
-  //const user_id = params.user_id;
+  const params = useParams();
+  console.log(params);
+  const user_id = params.user_id;
 
-  const user_id = 2333333434;
   return (
     <button
       className="my-2"
