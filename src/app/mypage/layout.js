@@ -141,6 +141,12 @@ const Layout = ({ children }) => {
             >
               건강기록
             </button>
+            <button
+              className="w-24 ml-5 rounded-2xl text-center bg-sky-300"
+              onClick={() => router.push(`/mypage/${user_id}/write`)}
+            >
+              게시글 작성
+            </button>
           </div>
           <button
             className="w-24 mt-3 rounded-2xl text-center bg-sky-300"

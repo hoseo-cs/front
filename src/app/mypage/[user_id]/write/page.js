@@ -3,6 +3,7 @@ import { useParams } from "next/navigation";
 
 const page = () => {
   const params = useParams();
+  const id = params.user_id;
 
   return (
     <form className="w-full">
@@ -25,13 +26,13 @@ const page = () => {
           </div>
           <div className="w-[310px] my-2 mx-auto flex justify-between">
             <div className="w-[100px] h-[100px] rounded-2xl border-2 border-lime-400">
-              박스
+              사진
             </div>
             <div className="w-[100px] h-[100px] rounded-2xl border-2 border-lime-400">
-              박스
+              사진
             </div>
             <div className="w-[100px] h-[100px] rounded-2xl border-2 border-lime-400">
-              박스
+              사진
             </div>
           </div>
           <button className="w-[310px] mx-auto rounded-2xl border-2 border-lime-400">
