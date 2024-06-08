@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 
 const KakaoMap = ({ center, coordinates = [] }) => {
+  //console.log(center, coordinates);
   useEffect(() => {
     const kakaoMapScript = document.createElement("script");
     kakaoMapScript.async = false;
