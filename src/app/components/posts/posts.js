@@ -7,9 +7,12 @@ const Posts = ({ userId }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}post/user/${userId}`
-        );
+        let url = `${process.env.NEXT_PUBLIC_API_URL}post`;
+        if (userId) {
+          url = `${process.env.NEXT_PUBLIC_API_URL}post/user/${userId}`;
+        }
+
+        const response = await fetch(url);
         console.log("response", response);
         const result = await response.json();
         if (result.status === "success") {
@@ -25,7 +28,7 @@ const Posts = ({ userId }) => {
   }, [userId]);
 
   return (
-    <div className="mt-[60px] grid grid-cols-2 gap-4 place-items-center">
+    <div className="mt-[60px] grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center">
       {posts.map((post) => (
         <PostCard key={post._id} post={post} />
       ))}

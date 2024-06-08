@@ -8,7 +8,7 @@ const PostCard = ({ post }) => {
   console.log(post._id);
 
   const handleClick = () => {
-    router.push(`/mypage/${post.userId}/posts/${post._id}`);
+    router.push(`/postDetail/${post._id}`);
   };
 
   return (
