@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   const router = useRouter();
   const params = useParams();
   const user_id = params.user_id;
-  console.log(user_id);
+  //console.log(user_id);
   const [userInfo, setUserInfo] = useState({
     nickname: "",
     pet: "",

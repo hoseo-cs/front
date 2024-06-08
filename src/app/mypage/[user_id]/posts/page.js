@@ -10,7 +10,7 @@ const page = () => {
       <div className="flex">
         <div className="font-bold"> {id}</div>님의 게시물
       </div>
-      <Posts />
+      <Posts userId={id} />
     </div>
   );
 };
