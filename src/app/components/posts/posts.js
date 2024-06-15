@@ -13,10 +13,10 @@ const Posts = ({ userId }) => {
         }
 
         const response = await fetch(url);
-        console.log("response", response);
+        //console.log("response", response);
         const result = await response.json();
         if (result.status === "success") {
-          console.log(result);
+          //console.log(result);
           setPosts(result.posts);
         }
       } catch (error) {

@@ -65,7 +65,7 @@ const MapPage = () => {
           if (!center && validCoords.length > 0) {
             setCenter(validCoords[0]);
           }
-          console.log("Coordinates:", validCoords);
+          //console.log("Coordinates:", validCoords);
         });
       };
 
@@ -75,7 +75,7 @@ const MapPage = () => {
     };
 
     if (center) {
-      console.log(center, "1");
+      //console.log(center, "1");
       // 카카오 맵 API 로드
       const kakaoMapScript = document.createElement("script");
       kakaoMapScript.async = false;
@@ -94,7 +94,7 @@ const MapPage = () => {
             (result, status) => {
               if (status === window.kakao.maps.services.Status.OK) {
                 const newKeyword = result[0].address.region_1depth_name;
-                console.log(newKeyword);
+                //console.log(newKeyword);
 
                 // 새 키워드가 이전 키워드와 다를 경우에만 상태 업데이트
                 if (newKeyword !== keyword) {
@@ -114,7 +114,7 @@ const MapPage = () => {
         document.head.removeChild(kakaoMapScript);
       };
     } else {
-      console.log("X");
+     // console.log("X");
       // 현재 위치를 가져와 center 상태로 설정
       navigator.geolocation.getCurrentPosition((position) => {
         const location = {

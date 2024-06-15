@@ -3,6 +3,9 @@ import "./globals.css";
 export const metadata = {
   title: "졸업프로젝트",
   description: "graduation project hoseo CS",
+  icons: {
+    icon: "/assets/favicon2.png",
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -15,7 +15,7 @@ const PostDetail = () => {
         const result = await response.json();
         if (result.status === "success") {
           setPost(result.post);
-          console.log(post);
+          //console.log(post);
         }
       } catch (error) {
         console.error("Error fetching post:", error);

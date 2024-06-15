@@ -6,7 +6,7 @@ const PostDetail = () => {
   const post_id = useParams();
   const [post, setPost] = useState(null);
   let isMyPost = false;
-  console.log(post_id);
+  // console.log(post_id);
   useEffect(() => {
     const fetchPost = async () => {
       try {

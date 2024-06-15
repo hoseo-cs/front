@@ -5,7 +5,7 @@ const PostCard = ({ post }) => {
     post.images.length > 0
       ? `${process.env.NEXT_PUBLIC_API_URL}post/user/${post.userId}/image/${post.images[0]}`
       : null;
-  console.log(post._id);
+  //console.log(post._id);
 
   const handleClick = () => {
     router.push(`/postDetail/${post._id}`);

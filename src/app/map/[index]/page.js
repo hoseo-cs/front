@@ -67,7 +67,7 @@ const MapPage = () => {
           );
           setCoordinates(validCoords);
           setCenter(validCoords[0]); // 첫 번째 좌표를 중심으로 설정
-          console.log("Coordinates:", validCoords);
+          //console.log("Coordinates:", validCoords);
         });
       };
 

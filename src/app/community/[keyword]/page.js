@@ -7,7 +7,7 @@ const SearchResults = () => {
   const { keyword } = useParams();
   const [posts, setPosts] = useState([]);
   const decodedKeyword = decodeURIComponent(keyword);
-  console.log(decodedKeyword);
+  //console.log(decodedKeyword);
   useEffect(() => {
     const fetchPosts = async () => {
       try {

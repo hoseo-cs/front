@@ -76,7 +76,7 @@ const Layout = ({ children }) => {
         );
 
         const result = await response.json();
-        console.log(result);
+        //console.log(result);
         if (result.status === "success") {
           setImageUrl(
             `${process.env.NEXT_PUBLIC_API_URL}upload/profile/${user_id}`

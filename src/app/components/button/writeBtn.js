@@ -3,7 +3,7 @@ import { useParams, useRouter } from "next/navigation";
 const WriteBtn = () => {
   const router = useRouter();
   const params = useParams();
-  console.log(params);
+  //console.log(params);
   const user_id = params.user_id;
 
   return (
