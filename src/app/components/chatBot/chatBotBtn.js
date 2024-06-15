@@ -17,8 +17,8 @@ const ChatBotBtn = () => {
       >
         🗨️
       </div>
-      <ModalDefault isOpen={isModalOpen} onClose={onClickChatBtn}>
-        <ChatBotModal />
+      <ModalDefault isOpen={isModalOpen}>
+        <ChatBotModal setIsModalOpen={setIsModalOpen} />
       </ModalDefault>
     </div>
   );

@@ -25,9 +25,13 @@ const Header = () => {
   return (
     mounted && (
       <div className="w-full h-[80px] flex flex-wrap items-center bg-header-bg p-4 sm:flex-nowrap sm:p-0">
-        <div className="w-full sm:w-auto h-[40px] text-center bg-black text-white flex items-center justify-center mb-2 sm:mb-0 sm:ml-[20px]">
+        {/* <div className="w-full sm:w-auto h-[40px] text-center bg-black text-white flex items-center justify-center mb-2 sm:mb-0 sm:ml-[20px]">
           LOGO
-        </div>
+        </div> */}
+        <img
+          className="w-full sm:w-auto h-[60px] text-center bg-header-bg  text-white flex items-center justify-center mb-2 sm:mb-0 sm:ml-[20px]"
+          src="/assets/minilogo.png"
+        ></img>
         <div className="w-full sm:w-auto flex justify-around sm:justify-start sm:space-x-4 mb-2 sm:mb-0">
           <Link className="cursor-pointer" href="/community">
             커뮤니티

@@ -1,7 +1,8 @@
 "use client";
-import ModalDefault from "@/app/components/modal/defaultModal";
+
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import ModalDefault from "../../components/modal/defaultModal";
 
 const LoginForm = () => {
   const router = useRouter();
