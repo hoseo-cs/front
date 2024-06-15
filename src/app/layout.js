@@ -1,7 +1,7 @@
 import Header from "./components/header";
 import "./globals.css";
 export const metadata = {
-  title: "졸업프로젝트",
+  title: "acare",
   description: "graduation project hoseo CS",
   icons: {
     icon: "/assets/favicon2.png",
