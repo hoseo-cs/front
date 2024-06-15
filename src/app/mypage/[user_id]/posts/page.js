@@ -1,6 +1,6 @@
 "use client";
-import Posts from "@/app/components/posts/posts";
 import { useParams } from "next/navigation";
+import Posts from "../../../components/posts/posts";
 
 const page = () => {
   const params = useParams();
