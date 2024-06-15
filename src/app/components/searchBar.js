@@ -1,16 +1,28 @@
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SearchBar = () => {
   const [keyword, setKeyword] = useState("");
+  const [isCommunityDomain, setIsCommunityDomain] = useState(false);
   const router = useRouter();
 
   const handleSearch = () => {
     if (keyword.trim()) {
-      router.push(`/community/${keyword}`);
+      if (isCommunityDomain) {
+        router.push(`/community/${keyword}`);
+      } else {
+        router.push(`/map/${keyword}`);
+      }
     }
   };
 
+  useEffect(() => {
+    if (window.location.pathname.startsWith("/community")) {
+      setIsCommunityDomain(true);
+    } else {
+      setIsCommunityDomain(false);
+    }
+  }, []);
   return (
     <div className="flex items-center">
       <input
