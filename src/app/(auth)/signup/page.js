@@ -1,6 +1,6 @@
 "use client";
+
 import SignupModal from "@/app/components/modal/alertSignup";
-import ModalDefault from "@/app/components/modal/defaultModal";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -187,12 +187,9 @@ const SignupForm = () => {
             </button>
           </div>
         </form>
-        <ModalDefault
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-        >
+        <ModalDefaul isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <SignupModal isSuccess={isSuccess} message={message} />
-        </ModalDefault>
+        </ModalDefaul>
       </div>
     </div>
   );

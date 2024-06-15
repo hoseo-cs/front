@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import ModalDefault from "../../components/modal/defaultModal";
+import ModalDefault from "../../components/modal/ModalDefault";
 
 const LoginForm = () => {
   const router = useRouter();
