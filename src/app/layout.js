@@ -1,10 +1,10 @@
 import Header from "./components/header";
 import "./globals.css";
 export const metadata = {
-  title: "acare",
+  title: "ACARE",
   description: "graduation project hoseo CS",
   icons: {
-    icon: "/assets/favicon2.png",
+    icon: "/assets/favicon.png",
   },
 };
 

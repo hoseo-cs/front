@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "header-bg": "#DBF2FF",
+        "header-bg": "bg-white",
       },
       width: {
         content: "1150px",
