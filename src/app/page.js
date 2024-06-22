@@ -38,24 +38,26 @@ const HomePage = () => {
         </div>
 
         <div className="absolute bottom-8 right-2 w-full lg:w-auto h-1/3 flex items-end justify-end p-4 lg:p-0">
-          <button className="px-4 py-2 bg-black text-white rounded-full flex items-center space-x-2">
-            <Link href="/map">병원 찾아보기</Link>
-            <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center">
-              <svg
-                className="w-4 h-4 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 5l7 7-7 7"
-                ></path>
-              </svg>
-            </div>
+          <button className="px-4 py-2 bg-white text-black rounded-full flex items-center space-x-2 shadow-lg transform hover:translate-y-1 hover:shadow-xl transition">
+            <Link href="/map" className="flex items-center">
+              병원 찾아보기
+              <div className="w-6 h-6 bg-slate-200 rounded-full flex items-center justify-center ml-2 shadow-inner">
+                <svg
+                  className="w-4 h-4 text-black"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </div>
+            </Link>
           </button>
         </div>
       </section>

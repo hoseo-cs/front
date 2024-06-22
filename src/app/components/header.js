@@ -5,11 +5,6 @@ import SearchBar from "./searchBar";
 
 const Header = () => {
   const router = useRouter();
-  //const [mounted, setMounted] = useState(false);
-
-  // useEffect(() => {
-  //   setMounted(true);
-  // }, []);
 
   const handleMyPageClick = () => {
     const username = localStorage.getItem("username");
@@ -23,9 +18,6 @@ const Header = () => {
 
   return (
     <div className="w-full h-[80px] flex flex-wrap items-center bg-header-bg p-4 sm:flex-nowrap sm:p-0">
-      {/* <div className="w-full sm:w-auto h-[40px] text-center bg-black text-white flex items-center justify-center mb-2 sm:mb-0 sm:ml-[20px]">
-          LOGO
-        </div> */}
       <img
         className="w-full sm:w-auto h-[60px] text-center bg-header-bg  text-white flex items-center justify-center mb-2 sm:mb-0 sm:ml-[20px]"
         src="/assets/minilogo.png"
