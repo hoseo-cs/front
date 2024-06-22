@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import SearchBar from "./searchBar";
 
 const Header = () => {
   const router = useRouter();
@@ -17,27 +16,23 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full h-[80px] flex flex-wrap items-center bg-header-bg p-4 sm:flex-nowrap sm:p-0">
+    <div className="w-full max-w-[1340px] mx-auto h-[80px] flex items-center bg-header-bg  justify-between">
       <img
-        className="w-full sm:w-auto h-[60px] text-center bg-header-bg  text-white flex items-center justify-center mb-2 sm:mb-0 sm:ml-[20px]"
+        className="h-[60px] bg-header-bg text-white flex items-center "
         src="/assets/minilogo.png"
-      ></img>
-      <div className="w-full sm:w-auto flex justify-around sm:justify-start sm:space-x-4 mb-2 sm:mb-0">
-        <Link className="cursor-pointer" href="/community">
+        alt="Logo"
+      />
+      <div className=" ml-auto flex ">
+        <Link className="cursor-pointer mr-3" href="/community">
           커뮤니티
         </Link>
-        <Link className="cursor-pointer" href="/map">
+        <Link className="cursor-pointer  mr-3" href="/map">
           병원 찾기
         </Link>
-      </div>
-      <div className="w-full sm:w-[340px] flex justify-center sm:mx-auto mb-2 sm:mb-0">
-        <SearchBar />
-      </div>
-      <div
-        className="w-full sm:w-auto flex justify-center sm:justify-end cursor-pointer"
-        onClick={handleMyPageClick}
-      >
-        마이페이지
+        {/* <SearchBar /> */}
+        <div className="cursor-pointer " onClick={handleMyPageClick}>
+          마이페이지
+        </div>
       </div>
     </div>
   );
