@@ -37,7 +37,7 @@ const HomePage = () => {
           </p>
         </div>
 
-        <div className="absolute bottom-8 right-2 w-full lg:w-auto h-1/3 flex items-end justify-end p-4 lg:p-0">
+        <div className="absolute bottom-6 right-2 w-full lg:w-auto h-1/3 flex items-end justify-end p-4 lg:p-0">
           <button className="px-4 py-2 bg-white text-black rounded-full flex items-center space-x-2 shadow-lg transform hover:translate-y-1 hover:shadow-xl transition">
             <Link href="/map" className="flex items-center">
               병원 찾아보기

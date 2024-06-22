@@ -17,11 +17,13 @@ const Header = () => {
 
   return (
     <div className="w-full max-w-[1340px] mx-auto h-[80px] flex items-center bg-header-bg  justify-between">
-      <img
-        className="h-[60px] bg-header-bg text-white flex items-center "
-        src="/assets/minilogo.png"
-        alt="Logo"
-      />
+      <Link href="/">
+        <img
+          className="h-[60px] bg-header-bg text-white flex items-center cursor-pointer"
+          src="/assets/minilogo.png"
+          alt="Logo"
+        />
+      </Link>
       <div className=" ml-auto flex ">
         <Link className="cursor-pointer mr-3" href="/community">
           커뮤니티
