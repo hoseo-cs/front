@@ -114,7 +114,7 @@ const MapPage = () => {
         document.head.removeChild(kakaoMapScript);
       };
     } else {
-     // console.log("X");
+      // console.log("X");
       // 현재 위치를 가져와 center 상태로 설정
       navigator.geolocation.getCurrentPosition((position) => {
         const location = {
@@ -128,7 +128,7 @@ const MapPage = () => {
   }, [center, keyword]); // center와 keyword 상태가 변경될 때마다 실행
 
   return (
-    <div className="max-w-[1150px] mx-auto overflow-x-hidden ">
+    <div className="w-full   mx-auto overflow-x-hidden ">
       <div className="w-[350px] mt-[35px]">
         현재 위치 기반입니다. 병원 클릭 시 이동합니다.
       </div>

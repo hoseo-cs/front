@@ -61,7 +61,12 @@ const KakaoMap = ({ center, coordinates = [] }) => {
     };
   }, [center, coordinates]);
 
-  return <div id="map" className="w-[970px] h-[580px]"></div>;
+  return (
+    <div className="relative w-full ">
+   
+      <div id="map" className="absolute top-0 left-0 w-full h-full"></div>
+    </div>
+  );
 };
 
 export default KakaoMap;
