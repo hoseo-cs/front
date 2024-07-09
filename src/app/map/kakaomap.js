@@ -2,7 +2,6 @@
 import { useEffect } from "react";
 
 const KakaoMap = ({ center, coordinates = [] }) => {
-  //console.log(center, coordinates);
   useEffect(() => {
     const kakaoMapScript = document.createElement("script");
     kakaoMapScript.async = false;
@@ -62,9 +61,8 @@ const KakaoMap = ({ center, coordinates = [] }) => {
   }, [center, coordinates]);
 
   return (
-    <div className="relative w-full ">
-   
-      <div id="map" className="absolute top-0 left-0 w-full h-full"></div>
+    <div className="absolute top-0 left-0 w-full h-full">
+      <div id="map" className="w-full h-full"></div>
     </div>
   );
 };

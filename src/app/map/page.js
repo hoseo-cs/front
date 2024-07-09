@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import SearchBar from "../components/searchBar";
 import KakaoMap from "./kakaomap";
 import List from "./list";
 const mockData = require("./mock.json");
@@ -9,6 +10,7 @@ const MapPage = () => {
   const [hospitals, setHospitals] = useState([]); // 병원 정보 상태
   const [coordinates, setCoordinates] = useState([]); // 병원 좌표 상태
   const [keyword, setKeyword] = useState(""); // 검색 키워드 상태
+  const [showList, setShowList] = useState(false); // 리스트 표시 상태
 
   useEffect(() => {
     // 병원 정보를 가져오는 함수
@@ -128,17 +130,29 @@ const MapPage = () => {
   }, [center, keyword]); // center와 keyword 상태가 변경될 때마다 실행
 
   return (
-    <div className="w-full   mx-auto overflow-x-hidden ">
-      <div className="w-[350px] mt-[35px]">
-        현재 위치 기반입니다. 병원 클릭 시 이동합니다.
+    <div className="flex flex-col md:flex-row w-full min-h-[calc(100vh-5rem)] overflow-hidden">
+      <div className="w-full md:w-96 p-4 bg-white shadow-lg flex-shrink-0">
+        <SearchBar setShowList={setShowList} />
       </div>
-      <div className=" h-[580px] flex ">
+      <div className="flex-1 relative">
         {center && <KakaoMap center={center} coordinates={coordinates} />}
-        <List
-          hospitals={hospitals}
-          setCenter={setCenter}
-          coordinates={coordinates}
-        />
+        <div
+          className={`absolute top-0 left-0 w-full h-full bg-white z-10 transform ${
+            showList ? "translate-y-0" : "translate-y-full"
+          } transition-transform duration-300 md:hidden`}
+        >
+          <List
+            hospitals={hospitals}
+            setCenter={setCenter}
+            coordinates={coordinates}
+          />
+          <button
+            onClick={() => setShowList(false)}
+            className="absolute top-4 right-4 bg-blue-500 text-white p-2 rounded-full"
+          >
+            닫기
+          </button>
+        </div>
       </div>
     </div>
   );

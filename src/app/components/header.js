@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Button } from "../../../@/components/ui/button";
+import { Button } from "../../@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../../../@/components/ui/dropdown-menu";
+} from "../../@/components/ui/dropdown-menu";
 const Header = () => {
   const router = useRouter();
 
