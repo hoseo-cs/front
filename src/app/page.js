@@ -65,9 +65,7 @@ const HomePage = () => {
       <aside className="flex flex-col lg:ml-4 space-y-6 mt-6 lg:mt-0 col-span-1 lg:col-span-1 h-auto lg:h-full overflow-y-auto">
         <div className="bg-yellow-300 p-4 rounded-lg shadow-md w-full h-48 flex flex-col justify-between">
           <p className="text-center text-sm">특수 동물들을 진료하는 병원들</p>
-          <p className="text-center text-2xl font-bold my-auto">
-            59,352,891 건
-          </p>
+          <p className="text-center text-2xl font-bold my-auto">191 곳</p>
         </div>
 
         <div className="bg-gray-100 p-4 rounded-lg shadow-md w-full h-72">

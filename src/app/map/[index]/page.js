@@ -1,6 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import SearchBar from "../../components/searchBar";
 import KakaoMap from "../kakaomap";
 import List from "../list";
 
@@ -13,6 +14,7 @@ const MapPage = () => {
   const [loading, setLoading] = useState(true);
   const [coordinates, setCoordinates] = useState([]);
   const [center, setCenter] = useState(null);
+  const [showList, setShowList] = useState(true); // 리스트 표시 상태
 
   useEffect(() => {
     const fetchHospitals = () => {
@@ -86,19 +88,34 @@ const MapPage = () => {
   }
 
   return (
-    <div className="max-w-[1150px] mx-auto overflow-x-hidden border-solid border-2 border-green-500">
-      <div className="w-[280px] mt-[35px] border-solid border-2 border-sky-500">
-        검색어: {decoded}
-      </div>
-      <div className="h-[580px] flex border-solid border-2 border-red-500">
-        {coordinates.length > 0 && (
-          <KakaoMap center={center} coordinates={coordinates} />
-        )}
+    <div className="flex flex-col md:flex-row w-full min-h-[calc(100vh-5rem)] overflow-hidden">
+      <div className="w-full md:w-96 p-4 bg-white shadow-lg flex-shrink-0">
+        <SearchBar setShowList={setShowList} />
         <List
           hospitals={hospitals}
           setCenter={setCenter}
           coordinates={coordinates}
         />
+      </div>
+      <div className="flex-1 relative">
+        {center && <KakaoMap center={center} coordinates={coordinates} />}
+        <div
+          className={`absolute top-0 left-0 w-full h-full bg-white z-10 transform ${
+            showList ? "translate-y-0" : "translate-y-full"
+          } transition-transform duration-300 md:hidden`}
+        >
+          <List
+            hospitals={hospitals}
+            setCenter={setCenter}
+            coordinates={coordinates}
+          />
+          <button
+            onClick={() => setShowList(false)}
+            className="absolute top-4 right-4 bg-blue-500 text-white p-2 rounded-full"
+          >
+            닫기
+          </button>
+        </div>
       </div>
     </div>
   );

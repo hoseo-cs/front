@@ -1,19 +1,12 @@
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const SearchBar = ({ setShowList }) => {
   const [keyword, setKeyword] = useState("");
-  const [isCommunityDomain, setIsCommunityDomain] = useState(false);
   const router = useRouter();
 
   const handleSearch = () => {
-    if (keyword.trim()) {
-      if (isCommunityDomain) {
-        router.push(`/community/${keyword}`);
-      } else {
-        router.push(`/map/${keyword}`);
-      }
-    }
+    router.push(`/map/${keyword}`);
   };
 
   const handleKeyDown = (event) => {
@@ -21,14 +14,6 @@ const SearchBar = ({ setShowList }) => {
       handleSearch();
     }
   };
-
-  useEffect(() => {
-    if (window.location.pathname.startsWith("/community")) {
-      setIsCommunityDomain(true);
-    } else {
-      setIsCommunityDomain(false);
-    }
-  }, []);
 
   return (
     <div className="flex items-center w-full max-w-md mx-auto my-4 border border-green-500 rounded-full px-4 py-2 shadow-sm">

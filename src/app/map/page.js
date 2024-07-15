@@ -10,7 +10,7 @@ const MapPage = () => {
   const [hospitals, setHospitals] = useState([]); // 병원 정보 상태
   const [coordinates, setCoordinates] = useState([]); // 병원 좌표 상태
   const [keyword, setKeyword] = useState(""); // 검색 키워드 상태
-  const [showList, setShowList] = useState(false); // 리스트 표시 상태
+  const [showList, setShowList] = useState(true); // 리스트 표시 상태
 
   useEffect(() => {
     // 병원 정보를 가져오는 함수
@@ -133,6 +133,11 @@ const MapPage = () => {
     <div className="flex flex-col md:flex-row w-full min-h-[calc(100vh-5rem)] overflow-hidden">
       <div className="w-full md:w-96 p-4 bg-white shadow-lg flex-shrink-0">
         <SearchBar setShowList={setShowList} />
+        <List
+          hospitals={hospitals}
+          setCenter={setCenter}
+          coordinates={coordinates}
+        />
       </div>
       <div className="flex-1 relative">
         {center && <KakaoMap center={center} coordinates={coordinates} />}
