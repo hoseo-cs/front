@@ -14,24 +14,23 @@ const PostCard = ({ post }) => {
   return (
     <div
       onClick={handleClick}
-      className="w-[460px] h-[160px] rounded-lg flex bg-slate-200"
+      className="w-full  max-w-sm h-[160px] rounded-lg flex bg-slate-100 items-center p-2 "
     >
-      <div className="mx-auto my-auto flex">
+      <div className="w-full flex">
         {imageUrl && (
-          <div className="w-[105px] h-[105px] rounded-lg border-solid border-2 border-sky-500">
+          <div className="w-[105px] h-[105px] rounded-lg ">
             <img
               src={imageUrl}
-              alt="post"
+              alt="동물 사진"
               className="w-full h-full object-cover rounded-lg"
             />
           </div>
         )}
-        <div className="w-[300px] ml-[10px]">
-          <div className="h-[50px] my-auto p-[10px] bg-orange-500 rounded-2xl">
-            {post.userId}
+        <div className="w-2/3 ml-[10px] flex flex-col justify-center ">
+          <div className=" w-full h-[50px] text-black  truncate overflow-hidden text-ellipsis whitespace-nowrap">
+            {post.title}
           </div>
-          <div>{post.title}</div>
-          <div>{post.content}</div>
+          <div className="w-full text-sm text-gray-600   ">{post.userId}</div>
         </div>
       </div>
     </div>

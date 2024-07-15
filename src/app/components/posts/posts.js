@@ -28,7 +28,7 @@ const Posts = ({ userId }) => {
   }, [userId]);
 
   return (
-    <div className="mt-[60px] grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center">
+    <div className="mt-[30px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center ">
       {posts.map((post) => (
         <PostCard key={post._id} post={post} />
       ))}

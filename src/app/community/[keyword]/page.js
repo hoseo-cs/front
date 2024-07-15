@@ -27,9 +27,10 @@ const SearchResults = () => {
   }, [keyword]);
 
   return (
-    <div className="max-w-[1150px] mx-auto mt-[60px]">
+    <div className="w-full mx-auto ">
+      <div className="w-1/4 text-center ">검색어 : {decodedKeyword}</div>
       {posts.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center">
+        <div className="mt-[30px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center ">
           {posts.map((post) => (
             <PostCard key={post._id} post={post} />
           ))}
