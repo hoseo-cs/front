@@ -7,13 +7,13 @@ const HealthCheckPage = () => {
   const id = params.user_id;
 
   return (
-    <div>
+    <div className="text-xs sm:text-base">
       {id}님의 반려동물 건강기록
-      <div className="flex px-3 py-8 justify-between">
-        <div className="w-[300px] h-[400px] rounded-2xl  bg-pink-100 text-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4  px-0 sm: px-3  py-8 justify-between ">
+        <div className="w-full h-[400px] rounded-2xl  bg-pink-100 text-center">
           사진
         </div>
-        <div className="w-8/12 rounded-2xl border-2 border-amber-700">
+        <div className="  mt-4 sm:mt-0 ">
           <TextInfo />
         </div>
       </div>
