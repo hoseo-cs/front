@@ -6,7 +6,6 @@ const Layout = ({ children }) => {
   const router = useRouter();
   const params = useParams();
   const user_id = params.user_id;
-  //console.log(user_id);
   const [userInfo, setUserInfo] = useState({
     nickname: "",
     pet: "",
@@ -30,7 +29,7 @@ const Layout = ({ children }) => {
       const fetchUserInfo = async () => {
         try {
           const response = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}user/info`, // 수정: user_id 추가
+            `${process.env.NEXT_PUBLIC_API_URL}user/info`,
             {
               method: "GET",
               headers: {
@@ -55,7 +54,7 @@ const Layout = ({ children }) => {
       };
       fetchUserInfo();
     }
-  }, [user_id, imageUrl]); // 수정: user_id를 의존성 배열에 추가
+  }, [user_id, imageUrl]);
 
   const inputProfile = async (e) => {
     const selectedImage = e.target.files[0];
@@ -63,7 +62,7 @@ const Layout = ({ children }) => {
       setImage(selectedImage);
 
       const formData = new FormData();
-      formData.append("image", selectedImage); // "image"로 이름 수정
+      formData.append("image", selectedImage);
       formData.append("userId", user_id);
 
       try {
@@ -76,7 +75,6 @@ const Layout = ({ children }) => {
         );
 
         const result = await response.json();
-        //console.log(result);
         if (result.status === "success") {
           setImageUrl(
             `${process.env.NEXT_PUBLIC_API_URL}upload/profile/${user_id}`
@@ -89,14 +87,14 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div>
-      <div className="w-4/5 mx-auto border-solid border-2 border-sky-500">
-        <div className="w-11/12 p-2 mx-auto flex bg-indigo-300 relative">
+    <div className="h-[calc(100vh-5rem)]   bg-gray-100 flex-grow grid grid-cols-1 sm:grid-cols-2 gap-4 place-items-center sm:[grid-template-columns:1fr_2fr]">
+      <div className="max-w-7xl w-[395px] sm:w-[395px]  h-full   bg-white p-6 drop-shadow-md sm:drop-shadow-2xl ">
+        <div className="text-center drop-shadow-xl mt-6">
           <form
-            className="w-20 h-20 rounded-full bg-amber-400 relative"
+            className="w-[110px] h-[110px] rounded-full bg-amber-400 relative m-auto   "
             onSubmit={(e) => e.preventDefault()} // 폼 기본 제출 동작 막기
           >
-            <div className="absolute bottom-0 right-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center transform translate-x-1/3 cursor-pointer">
+            <div className="absolute bottom-0 right-0 w-8 h-8 bg-amber-200 text-white rounded-full flex items-center justify-center transform translate-x-1/3 cursor-pointer">
               <label htmlFor="file-input" className="p-2 cursor-pointer">
                 ➕
               </label>
@@ -110,52 +108,55 @@ const Layout = ({ children }) => {
             </div>
             {imageUrl && (
               <img
-                className="w-20 h-20 rounded-full"
-                width={100}
+                className="w-[110px] h-[110px] rounded-full "
                 src={imageUrl}
                 alt="profile"
               />
             )}
           </form>
 
-          <div className="ml-5 flex my-auto">
-            <div>닉네임: {userInfo.nickname}</div>
-            <div>반려동물: {userInfo.pet}</div>{" "}
-            <div>
-              지역: {userInfo.city} {userInfo.district}
+          <div className="mt-3">
+            <div className="text-2xl font-bold">{userInfo.nickname}</div>
+            <div className="text-gray-600 mt-2">반려 동물: {userInfo.pet}</div>
+            <div className="text-gray-600 mt-1">
+              {userInfo.city} {userInfo.district}
             </div>
-            <div className="ml-5">✏️</div>
           </div>
         </div>
-        <div className="w-11/12 mx-auto flex justify-between">
-          <div className="mt-3 flex">
-            <button
-              className="w-24 rounded-2xl text-center bg-sky-300"
-              onClick={() => router.push(`/mypage/${user_id}/posts`)}
-            >
-              게시판
-            </button>
-            <button
-              className="w-24 ml-5 rounded-2xl text-center bg-sky-300"
-              onClick={() => router.push(`/mypage/${user_id}/healthcheck`)}
-            >
-              건강기록
-            </button>
-            <button
-              className="w-24 ml-5 rounded-2xl text-center bg-sky-300"
-              onClick={() => router.push(`/mypage/${user_id}/write`)}
-            >
-              게시글 작성
-            </button>
-          </div>
+        <div className="text-lg mt-10 text-end sm:mt-20 sm:text-start ">
+          <div className="hover:underline ">프로필 수정하기</div>
+          <div className="mt-2 hover:underline ">문의하기</div>
           <button
-            className="w-24 mt-3 rounded-2xl text-center bg-sky-300"
+            className="text-sm text-blue-500 mt-2 hover:underline "
             onClick={handleLogout}
           >
             로그아웃
           </button>
         </div>
-        <div className="w-11/12 mt-2 mx-auto">{children}</div>
+      </div>
+      <div className="w-full h-full ">
+        <div className="flex justify-evenly mt-16 ">
+          <button
+            className="px-4 py-2  bg-amber-200 text-black rounded-md transition-colors duration-300 hover:bg-amber-400"
+            onClick={() => router.push(`/mypage/${user_id}/posts`)}
+          >
+            게시판
+          </button>
+          <button
+            className="px-4 py-2 bg-amber-200 text-black rounded-md transition-colors duration-300 hover:bg-amber-400"
+            onClick={() => router.push(`/mypage/${user_id}/healthcheck`)}
+          >
+            건강기록
+          </button>
+          <button
+            className="px-4 py-2  bg-amber-200 text-black rounded-md transition-colors duration-300 hover:bg-amber-400"
+            onClick={() => router.push(`/mypage/${user_id}/write`)}
+          >
+            게시글 작성
+          </button>
+        </div>
+
+        <div className="mt-12 p-2 sm:mt-6 ">{children}</div>
       </div>
     </div>
   );

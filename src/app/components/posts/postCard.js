@@ -14,7 +14,7 @@ const PostCard = ({ post }) => {
   return (
     <div
       onClick={handleClick}
-      className="w-full  max-w-sm h-[160px] rounded-lg flex bg-slate-100 items-center p-2 "
+      className="w-full  max-w-sm h-[160px] rounded-lg flex bg-slate-100 drop-shadow-md sm:drop-shadow-2xl items-center p-2  transform transition-transform duration-300 hover:scale-105 "
     >
       <div className="w-full flex">
         {imageUrl && (
