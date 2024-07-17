@@ -143,16 +143,22 @@ const Layout = ({ children }) => {
             게시판
           </button>
           <button
+            className="px-4 py-2  bg-amber-200 text-black rounded-md transition-colors duration-300 hover:bg-amber-400"
+            onClick={() => router.push(`/mypage/${user_id}/write`)}
+          >
+            게시글 작성
+          </button>
+          <button
             className="px-4 py-2 bg-amber-200 text-black rounded-md transition-colors duration-300 hover:bg-amber-400"
             onClick={() => router.push(`/mypage/${user_id}/healthcheck`)}
           >
             건강기록
           </button>
           <button
-            className="px-4 py-2  bg-amber-200 text-black rounded-md transition-colors duration-300 hover:bg-amber-400"
-            onClick={() => router.push(`/mypage/${user_id}/write`)}
+            className="px-4 py-2 bg-amber-200 text-black rounded-md transition-colors duration-300 hover:bg-amber-400"
+            onClick={() => router.push(`/mypage/${user_id}/healthrecord`)}
           >
-            게시글 작성
+            건강기록 작성
           </button>
         </div>
 
