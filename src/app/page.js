@@ -77,7 +77,7 @@ const HomePage = () => {
           <img
             src="/assets/background/landing2.png"
             alt="Cover"
-            className="absolute w-full h-full object-cover z-0 opacity-65"
+            className="absolute rounded-lg w-full h-full object-cover z-0 opacity-65"
           />
           <p className="text-center text-sm mt-2 z-10 ">
             특수 동물들을 진료하는 병원들
