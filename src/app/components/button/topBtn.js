@@ -35,7 +35,7 @@ const TopButton = () => {
   return (
     showBtn && (
       <button
-        className=" sticky bottom-20 left-full  bg-blue-500 hover:bg-blue-700 rounded"
+        className="p-1 sticky bottom-24 left-full  bg-sky-200 hover:bg-sky-600 rounded-full"
         onClick={scrollToTop}
       >
         ⏫
