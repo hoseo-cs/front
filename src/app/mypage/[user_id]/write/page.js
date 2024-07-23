@@ -78,7 +78,7 @@ const Page = () => {
               onChange={handleFileChange}
             />
           </div>
-          <div className="w-[310px] my-2 mx-auto flex justify-between">
+          <div className="w-[310px] sm:w-full my-2 mx-auto flex justify-between">
             {images.map((image, index) => (
               <div key={index} className="w-[100px] h-[100px] rounded-2xl ">
                 <img
