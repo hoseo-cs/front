@@ -1,6 +1,6 @@
 "use client";
 import { useParams } from "next/navigation";
-import Posts from "../../../components/posts/posts";
+import Records from "./records.js";
 
 const page = () => {
   const params = useParams();
@@ -10,7 +10,7 @@ const page = () => {
       <div className="flex">
         <div className="font-bold"> {id}</div>님의 게시물
       </div>
-      <Posts userId={id} />
+      <Records userId={id} />
     </div>
   );
 };

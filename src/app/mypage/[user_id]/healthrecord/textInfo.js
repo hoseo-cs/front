@@ -1,6 +1,9 @@
+import { useParams } from "next/navigation";
 import { useState } from "react";
 
 const TextInfo = () => {
+  const params = useParams();
+  const userId = params.user_id;
   const [formData, setFormData] = useState({
     name: "",
     weight: "",
@@ -32,6 +35,7 @@ const TextInfo = () => {
     e.preventDefault();
 
     const data = new FormData();
+
     for (const key in formData) {
       data.append(key, formData[key]);
     } //formData state를 각각 넣어줌
@@ -39,25 +43,24 @@ const TextInfo = () => {
     images.forEach((image) => {
       data.append("images", image);
     });
-    console.log("Form Data Submitted: ", formData);
 
-    // try {
-    //   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}post`, {
-    //     method: "POST",
-    //     body: formData,
-    //   });
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}record`, {
+        method: "POST",
+        body: data,
+      });
 
-    //   const result = await response.json();
-    //   if (result.status === "success") {
-    //     alert("건강기록이 성공적으로 업로드되었습니다.");
-    //     setImages([]);
-    //     router.push(`/mypage/${userId}/posts`);
-    //   } else {
-    //     alert("게시글 업로드에 실패했습니다.");
-    //   }
-    // } catch (error) {
-    //   console.error("Error uploading post:", error);
-    // }
+      const result = await response.json();
+      if (result.status === "success") {
+        alert("건강기록이 성공적으로 업로드되었습니다.");
+        setImages([]);
+        router.push(`/mypage/${userId}/healthcheck`);
+      } else {
+        alert("게시글 업로드에 실패했습니다.");
+      }
+    } catch (error) {
+      console.error("Error uploading post:", error);
+    }
   };
 
   return (
